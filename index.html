@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Text Display</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        #dynamicText {
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="dynamicText">Loading...</div>
+
+    <script>
+        // Function to get the text from the URL parameters
+        function getTextFromUrl() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('label') || 'No text provided'; // Default message if no text is provided
+        }
+
+        // Display the text in the center of the page
+        document.getElementById('dynamicText').textContent = getTextFromUrl();
+    </script>
+</body>
+</html>
